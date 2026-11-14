@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply text-gray-800;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors font-medium;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors font-medium;
+  }
+  
+  .btn-danger {
+    @apply bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors font-medium;
+  }
+  
+  .btn-success {
+    @apply bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors font-medium;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden;
+  }
+  
+  .badge-pending {
+    @apply bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full font-medium;
+  }
+  
+  .badge-approved {
+    @apply bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-medium;
+  }
+  
+  .badge-rejected {
+    @apply bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full font-medium;
+  }
+  
+  /* Article content styles */
+  .article-content h2 {
+    @apply text-2xl font-bold mt-8 mb-4;
+  }
+  .article-content h3 {
+    @apply text-xl font-semibold mt-6 mb-3;
+  }
+  .article-content p {
+    @apply mb-4 leading-relaxed;
+  }
+  .article-content ul, .article-content ol {
+    @apply mb-4 pl-6;
+  }
+  .article-content li {
+    @apply mb-1;
+  }
+  .article-content blockquote {
+    @apply border-l-4 border-blue-500 pl-4 italic text-gray-600 my-4;
+  }
+}
+
+/* AdSense placeholder (dev only) */
+.adsense-placeholder {
+  @apply bg-gray-100 border-2 border-dashed border-gray-300 flex items-center justify-center text-gray-400 text-sm rounded;
+  min-height: 90px;
+}
