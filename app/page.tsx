@@ -4,7 +4,7 @@ import { Footer } from '@/components/Footer';
 import { ArticleCard } from '@/components/ArticleCard';
 import { AdUnit } from '@/components/AdUnit';
 
-export const revalidate = 60;
+export const dynamic = 'force-dynamic';
 
 export default async function HomePage() {
   const articles = await db.article.findMany({

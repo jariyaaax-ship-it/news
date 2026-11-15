@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export const revalidate = 60;
+export const dynamic = 'force-dynamic';
 
 export default async function ArticlePage({ params }: PageProps) {
   const article = await db.article.findUnique({

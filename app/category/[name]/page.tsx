@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export const revalidate = 60;
+export const dynamic = 'force-dynamic';
 
 export default async function CategoryPage({ params }: PageProps) {
   const category = decodeURIComponent(params.name);

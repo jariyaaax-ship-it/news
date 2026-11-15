@@ -61,11 +61,19 @@ NEXT_PUBLIC_SITE_URL="https://yourdomain.com"
 6. แก้ไข `public/ads.txt` ด้วย Publisher ID จริง
 7. Deploy ใหม่
 
-## 🌐 Deploy บน Vercel
+## 🌐 Deploy บน Render
 
-```bash
-npx vercel --prod
-```
+โปรเจกต์มี `render.yaml` สำหรับสร้าง Web Service อัตโนมัติ ให้ push โค้ดขึ้น GitHub
+แล้วเลือก **New → Blueprint** ใน Render และเชื่อม repository นี้ Render จะใช้คำสั่ง
+ติดตั้ง dependencies, สร้าง Prisma Client และ build Next.js ตามไฟล์ดังกล่าว
+
+ตั้ง `NEXTAUTH_URL` และ `NEXT_PUBLIC_SITE_URL` ให้ตรงกับ URL จริงของ service หลังสร้าง
+service แล้ว หากเปลี่ยนชื่อ service หรือใช้ custom domain ให้แก้ค่าทั้งสองใน Environment
+ของ Render แล้ว deploy ใหม่
+
+ฐานข้อมูลปัจจุบันเป็น SQLite (`file:./render.db`) ซึ่งอยู่ใต้โฟลเดอร์ `prisma/` บน filesystem ชั่วคราวของ
+Render Free ดังนั้นข้อมูลอาจหายเมื่อ service ถูกสร้างใหม่หรือ deploy บางรูปแบบ สำหรับ
+ข้อมูลถาวรให้ย้าย Prisma datasource ไป PostgreSQL และใช้ Render PostgreSQL ก่อนใช้งานจริง
 
 ## 📁 โครงสร้างโปรเจกต์
 

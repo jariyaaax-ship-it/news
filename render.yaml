@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: news
+    runtime: node
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npx prisma db push && npm start
+    healthCheckPath: /
+    envVars:
+      - key: DATABASE_URL
+        value: file:./render.db
+      - key: NEXTAUTH_SECRET
+        generateValue: true
+      - key: NEXTAUTH_URL
+        value: https://news-ht5i.onrender.com
+      - key: NEXT_PUBLIC_SITE_URL
+        value: https://news-ht5i.onrender.com
+      - key: NEXT_PUBLIC_SITE_NAME
+        value: ข่าวสดออนไลน์
