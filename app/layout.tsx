@@ -28,19 +28,14 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const adsenseId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
-  const hasRealAdsense = adsenseId && !adsenseId.includes('XXXX');
-
   return (
     <html lang="th">
       <head>
-        {hasRealAdsense && (
-          <script
-            async
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseId}`}
-            crossOrigin="anonymous"
-          />
-        )}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9250532329693433"
+          crossOrigin="anonymous"
+        />
       </head>
       <body className="font-sans bg-gray-50 text-gray-900 antialiased">
         <Providers>{children}</Providers>

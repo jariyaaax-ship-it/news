@@ -2,7 +2,6 @@ import { db } from '@/lib/db';
 import { notFound } from 'next/navigation';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
-import { AdUnit } from '@/components/AdUnit';
 import { ArticleCard } from '@/components/ArticleCard';
 import type { Metadata } from 'next';
 import Image from 'next/image';
@@ -124,34 +123,17 @@ export default async function ArticlePage({ params }: PageProps) {
               </div>
             )}
 
-            {/* Top Ad (shown only if admin enabled ads) */}
-            {article.showAds && (
-              <div className="mb-6">
-                <AdUnit slot="2233445566" format="horizontal" className="w-full" style={{ minHeight: 90 }} />
-              </div>
-            )}
-
             {/* Article Body */}
             <div
               className="article-content text-gray-800 leading-relaxed text-lg"
               dangerouslySetInnerHTML={{ __html: article.content }}
             />
 
-            {/* Bottom Ad (shown only if admin enabled ads) */}
-            {article.showAds && (
-              <div className="mt-8 pt-6 border-t border-gray-100">
-                <p className="text-xs text-gray-400 mb-2 text-center">— โฆษณา —</p>
-                <AdUnit slot="6655443322" format="rectangle" className="w-full" style={{ minHeight: 250 }} />
-              </div>
-            )}
           </article>
 
           {/* Sidebar */}
           <aside className="space-y-6">
-            {/* Sticky sidebar ad */}
             <div className="sticky top-20">
-              <AdUnit slot="9988776655" format="rectangle" style={{ minHeight: 250 }} />
-
               {/* Related articles */}
               {related.length > 0 && (
                 <div className="card p-4 mt-4">

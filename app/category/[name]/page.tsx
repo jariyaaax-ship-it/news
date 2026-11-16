@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { ArticleCard } from '@/components/ArticleCard';
-import { AdUnit } from '@/components/AdUnit';
 import type { Metadata } from 'next';
 
 interface PageProps {
@@ -51,10 +50,6 @@ export default async function CategoryPage({ params }: PageProps) {
           <span className="w-1.5 h-8 bg-blue-700 rounded-full" />
           <h1 className="text-2xl font-bold text-gray-900">ข่าว{category}</h1>
           <span className="text-sm text-gray-400">({articles.length} บทความ)</span>
-        </div>
-
-        <div className="mb-6">
-          <AdUnit slot="1234509876" format="horizontal" className="w-full" style={{ minHeight: 90 }} />
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">

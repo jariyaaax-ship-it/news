@@ -2,7 +2,6 @@ import { db } from '@/lib/db';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { ArticleCard } from '@/components/ArticleCard';
-import { AdUnit } from '@/components/AdUnit';
 
 export const dynamic = 'force-dynamic';
 
@@ -22,11 +21,6 @@ export default async function HomePage() {
     <>
       <Navbar />
       <main className="max-w-7xl mx-auto px-4 py-6">
-
-        {/* Header Ad */}
-        <div className="mb-6">
-          <AdUnit slot="1234567890" format="horizontal" className="w-full" style={{ minHeight: 90 }} />
-        </div>
 
         {articles.length === 0 ? (
           <div className="text-center py-24 text-gray-400">
@@ -58,8 +52,6 @@ export default async function HomePage() {
                   ))}
                 </div>
 
-                {/* Sidebar Ad */}
-                <AdUnit slot="0987654321" format="rectangle" style={{ minHeight: 250 }} />
               </div>
             </div>
 
@@ -76,13 +68,6 @@ export default async function HomePage() {
                   ))}
                 </div>
               </section>
-            )}
-
-            {/* In-feed Ad */}
-            {latest.length > 0 && (
-              <div className="mb-8">
-                <AdUnit slot="1122334455" format="fluid" className="w-full" style={{ minHeight: 100 }} />
-              </div>
             )}
 
             {/* More News */}
