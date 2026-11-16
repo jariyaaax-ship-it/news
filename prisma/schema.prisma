@@ -21,6 +21,16 @@ model User {
   updatedAt DateTime  @updatedAt
 }
 
+model EmailVerification {
+  email     String   @id
+  name      String
+  password  String
+  codeHash  String
+  expiresAt DateTime
+  attempts  Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
 model Article {
   id          String    @id @default(cuid())
   title       String
@@ -42,7 +52,7 @@ model AdUnit {
   id        String   @id @default(cuid())
   name      String
   slot      String   @unique
-  position  String   // "header" | "sidebar" | "in-content" | "footer"
+  position  String // "header" | "sidebar" | "in-content" | "footer"
   isActive  Boolean  @default(false)
   createdAt DateTime @default(now())
 }

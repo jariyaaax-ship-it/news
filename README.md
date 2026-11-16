@@ -49,7 +49,18 @@ NEXT_PUBLIC_ADSENSE_CLIENT_ID="ca-pub-XXXXXXXXXXXXXXXX"
 
 NEXT_PUBLIC_SITE_NAME="ข่าวสดออนไลน์"
 NEXT_PUBLIC_SITE_URL="https://yourdomain.com"
+
+# SMTP สำหรับส่งรหัสยืนยันอีเมล
+SMTP_HOST="smtp.example.com"
+SMTP_PORT="587"
+SMTP_USER="your-smtp-username"
+SMTP_PASSWORD="your-smtp-password"
+SMTP_FROM="ข่าวสดออนไลน์ <no-reply@yourdomain.com>"
 ```
+
+การสมัครจะส่งรหัส 6 หลักไปยังอีเมล รหัสหมดอายุใน 10 นาที และสร้างบัญชีหลังยืนยันสำเร็จ
+ตั้งค่า SMTP ทั้ง 5 ค่าใน Environment ของ Render ก่อนเปิดรับสมัครจริง โดย `SMTP_FROM`
+ต้องเป็น sender address ที่ผู้ให้บริการ SMTP อนุญาต
 
 ## 📢 ขั้นตอนเชื่อมต่อ Google AdSense
 

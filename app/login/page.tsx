@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -9,7 +9,14 @@ export default function LoginPage() {
   const router = useRouter();
   const [form, setForm] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
+  const [notice, setNotice] = useState('');
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (new URLSearchParams(window.location.search).get('registered') === '1') {
+      setNotice('ยืนยันอีเมลและสมัครสมาชิกสำเร็จ กรุณาเข้าสู่ระบบ');
+    }
+  }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -43,6 +50,12 @@ export default function LoginPage() {
           <h1 className="text-2xl font-bold text-gray-800 mt-4">เข้าสู่ระบบ</h1>
           <p className="text-gray-500 text-sm mt-1">ยินดีต้อนรับกลับมา</p>
         </div>
+
+        {notice && (
+          <div className="bg-green-50 border border-green-200 text-green-700 rounded-lg px-4 py-3 text-sm mb-4">
+            {notice}
+          </div>
+        )}
 
         <form onSubmit={handleSubmit} className="space-y-4">
           {error && (

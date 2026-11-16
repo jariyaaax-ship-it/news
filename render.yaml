@@ -17,3 +17,13 @@ services:
         value: https://news-ht5i.onrender.com
       - key: NEXT_PUBLIC_SITE_NAME
         value: ข่าวสดออนไลน์
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        value: "587"
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASSWORD
+        sync: false
+      - key: SMTP_FROM
+        sync: false
