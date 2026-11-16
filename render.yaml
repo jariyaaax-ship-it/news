@@ -18,7 +18,7 @@ services:
       - key: NEXT_PUBLIC_SITE_NAME
         value: ข่าวสดออนไลน์
       - key: SMTP_HOST
-        sync: false
+        value: smtp.gmail.com
       - key: SMTP_PORT
         value: "587"
       - key: SMTP_USER
