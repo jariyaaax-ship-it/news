@@ -2,6 +2,7 @@ import { db } from '@/lib/db';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { ArticleCard } from '@/components/ArticleCard';
+import { GoogleAd } from '@/components/GoogleAd';
 
 export const dynamic = 'force-dynamic';
 
@@ -20,6 +21,7 @@ export default async function HomePage() {
   return (
     <>
       <Navbar />
+      <GoogleAd />
       <main className="max-w-7xl mx-auto px-4 py-6">
 
         {articles.length === 0 ? (
